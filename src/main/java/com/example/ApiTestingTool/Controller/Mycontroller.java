@@ -59,6 +59,15 @@ public class Mycontroller {
 
     @PostMapping("save")
     public ApiBody SaveAll(@RequestBody ApiBody data){
+         
+        List<ApiBody> list=getAll();
+        int id= 1;
+        if( !list.isEmpty())
+        {
+            id= list.get(0).getId() +1;
+        }
+
+         data.setId(id);
         return  bodyDataRepository.save(data);
     }
 

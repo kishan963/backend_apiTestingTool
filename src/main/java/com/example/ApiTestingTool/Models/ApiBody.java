@@ -1,23 +1,20 @@
 package com.example.ApiTestingTool.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+
+@Document
 public class ApiBody {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String url;
     private String method;
     private String headers;
-    @Column(length = 1000)
+   
     private String body;
-    @Column(length = 1000)
+
     private String validation;
     public String getTestScript() {
         return testScript;
@@ -25,7 +22,6 @@ public class ApiBody {
     public void setTestScript(String testScript) {
         this.testScript = testScript;
     }
-    @Column(length = 1000)
     private String testScript;
     private String row_num;
     
